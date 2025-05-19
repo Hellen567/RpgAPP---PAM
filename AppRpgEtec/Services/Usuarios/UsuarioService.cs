@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AppRpgEtec.Models;
-using AVFoundation;
 
 namespace AppRpgEtec.Services.Usuarios
 {

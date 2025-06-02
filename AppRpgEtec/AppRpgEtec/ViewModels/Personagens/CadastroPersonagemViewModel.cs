@@ -17,7 +17,7 @@ namespace AppRpgEtec.ViewModels.Personagens
         private ObservableCollection<TipoClasse> listaTiposClasse;
         private TipoClasse tipoClasseSelecionado;
         public ICommand SalvarCommand { get; }
-
+        public ICommand CancelarCommand { get; set;  }
 
         public ObservableCollection<TipoClasse> ListaTiposClasse
         {
@@ -71,6 +71,7 @@ namespace AppRpgEtec.ViewModels.Personagens
             _ = ObterClasses();
 
             SalvarCommand = new Command(async () => { await SalvarPersonagem(); });
+            CancelarCommand = new Command(async => CancelarCadastro());
         }
 
         public async Task ObterClasses()
@@ -119,6 +120,11 @@ namespace AppRpgEtec.ViewModels.Personagens
                 await Application.Current.MainPage
                     .DisplayAlert("Ops", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
             }
+        }
+
+        private async void CancelarCadastro()
+        {
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

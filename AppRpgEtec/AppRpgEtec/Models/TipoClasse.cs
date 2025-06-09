@@ -10,5 +10,10 @@ namespace AppRpgEtec.Models
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
+
+        internal TipoClasse FirstOrDefault(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
